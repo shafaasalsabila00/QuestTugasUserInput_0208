@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="header_height">220dp</dimen>
+    <dimen name="card_offset_top">190dp</dimen>
+    <dimen name="card_margin_horizontal">12dp</dimen>
+    <dimen name="card_corner">32dp</dimen>
+    <dimen name="card_elevation">12dp</dimen>
+    <dimen name="card_padding">24dp</dimen>
+
+</resources>
