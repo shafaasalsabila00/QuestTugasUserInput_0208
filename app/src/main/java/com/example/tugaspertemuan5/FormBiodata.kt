@@ -310,6 +310,50 @@ fun FormBiodata(modifier: Modifier = Modifier) {
                     Text(stringResource(id = R.string.btn_proceed))
                 }
 
+                if (showResult) {
+                    Spacer(Modifier.height(dimensionResource(id = R.dimen.spacing_medium)))
+                    ElevatedCard(
+                        elevation = CardDefaults.cardElevation(
+                            defaultElevation = dimensionResource(id = R.dimen.result_elevation)
+                        ),
+                        colors = CardDefaults.cardColors(
+                            containerColor = colorResource(id = R.color.result_card_bg)
+                        ),
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Column(modifier = Modifier.padding(dimensionResource(id = R.dimen.spacing_medium))) {
+                            val textColor = colorResource(id = R.color.result_text)
+                            Text(text = stringResource(id = R.string.result_name, resultNama), color = textColor)
+                            Text(text = stringResource(id = R.string.result_email, resultEmail), color = textColor)
+                            Text(text = stringResource(id = R.string.result_birth, resultTglLahir), color = textColor)
+                            Text(text = stringResource(id = R.string.result_experience, resultExperience), color = textColor)
+                            Text(text = stringResource(id = R.string.result_skill, resultSkills), color = textColor)
+                        }
+                    }
+                }
+            }
+        }
+    }
 
+    if (showDatePicker) {
+        val datePickerState = rememberDatePickerState()
+        DatePickerDialog(
+            onDismissRequest = { showDatePicker = false },
+            confirmButton = {
+                TextButton(onClick = {
+                    datePickerState.selectedDateMillis?.let {
+                        birthDate = SimpleDateFormat(dateFormat, Locale.getDefault()).format(Date(it))
+                    }
+                    showDatePicker = false
+                }) { Text(stringResource(id = R.string.dialog_ok)) }
+            },
+            dismissButton = {
+                TextButton(onClick = { showDatePicker = false }) {
+                    Text(stringResource(id = R.string.dialog_cancel))
+                }
+            }
+        ) {
+            DatePicker(state = datePickerState)
+        }
     }
 }
