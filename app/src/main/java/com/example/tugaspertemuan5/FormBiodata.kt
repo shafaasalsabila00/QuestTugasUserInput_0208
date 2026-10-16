@@ -202,6 +202,61 @@ fun FormBiodata(modifier: Modifier = Modifier) {
 
                 Spacer(Modifier.height(dimensionResource(id = R.dimen.spacing_medium)))
 
+                Row(horizontalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.spacing_small))) {
+                    OutlinedTextField(
+                        value = birthDate,
+                        onValueChange = {},
+                        readOnly = true,
+                        singleLine = true,
+                        shape = fieldShape,
+                        colors = fieldColors,
+                        label = { Text(stringResource(id = R.string.hint_birth_date)) },
+                        trailingIcon = {
+                            IconButton(onClick = { showDatePicker = true }) {
+                                Icon(
+                                    imageVector = Icons.Default.DateRange,
+                                    contentDescription = stringResource(id = R.string.cd_pick_date)
+                                )
+                            }
+                        },
+                        modifier = Modifier.weight(1f)
+                    )
+
+                    ExposedDropdownMenuBox(
+                        expanded = expanded,
+                        onExpandedChange = { expanded = it },
+                        modifier = Modifier.weight(1f)
+                    ) {
+                        OutlinedTextField(
+                            value = experience,
+                            onValueChange = {},
+                            readOnly = true,
+                            singleLine = true,
+                            shape = fieldShape,
+                            colors = fieldColors,
+                            label = { Text(stringResource(id = R.string.hint_experience)) },
+                            trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
+                            modifier = Modifier.menuAnchor()
+                        )
+                        ExposedDropdownMenu(
+                            expanded = expanded,
+                            onDismissRequest = { expanded = false }
+                        ) {
+                            experiences.forEach { item ->
+                                DropdownMenuItem(
+                                    text = { Text(item) },
+                                    onClick = {
+                                        experience = item
+                                        expanded = false
+                                    }
+                                )
+                            }
+                        }
+                    }
+                }
+
+                Spacer(Modifier.height(dimensionResource(id = R.dimen.spacing_medium)))
+
 
     }
 }
