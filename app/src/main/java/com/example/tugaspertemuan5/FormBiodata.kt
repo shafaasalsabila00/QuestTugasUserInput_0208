@@ -61,4 +61,16 @@ import java.util.Date
 import java.util.Locale
 import androidx.compose.foundation.layout.fillMaxHeight
 
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun FormBiodata(modifier: Modifier = Modifier) {
+    var firstName by remember { mutableStateOf("") }
+    var lastName by remember { mutableStateOf("") }
+    var email by remember { mutableStateOf("") }
+    var birthDate by remember { mutableStateOf("") }
+    var experience by remember { mutableStateOf("") }
+    val selectedSkills = remember { mutableStateListOf<String>() }
+
+    var showDatePicker by remember { mutableStateOf(false) }
+    var expanded by remember { mutableStateOf(false) }
 
