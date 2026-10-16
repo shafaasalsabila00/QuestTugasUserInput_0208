@@ -167,6 +167,41 @@ fun FormBiodata(modifier: Modifier = Modifier) {
 
                 Spacer(Modifier.height(dimensionResource(id = R.dimen.spacing_large)))
 
+                Row(horizontalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.spacing_small))) {
+                    OutlinedTextField(
+                        value = firstName,
+                        onValueChange = { firstName = it },
+                        singleLine = true,
+                        shape = fieldShape,
+                        colors = fieldColors,
+                        label = { Text(stringResource(id = R.string.hint_first_name)) },
+                        modifier = Modifier.weight(1f)
+                    )
+                    OutlinedTextField(
+                        value = lastName,
+                        onValueChange = { lastName = it },
+                        singleLine = true,
+                        shape = fieldShape,
+                        colors = fieldColors,
+                        label = { Text(stringResource(id = R.string.hint_last_name)) },
+                        modifier = Modifier.weight(1f)
+                    )
+                }
+
+                Spacer(Modifier.height(dimensionResource(id = R.dimen.spacing_medium)))
+
+                OutlinedTextField(
+                    value = email,
+                    onValueChange = { email = it },
+                    singleLine = true,
+                    shape = fieldShape,
+                    colors = fieldColors,
+                    label = { Text(stringResource(id = R.string.hint_email)) },
+                    modifier = Modifier.fillMaxWidth()
+                )
+
+                Spacer(Modifier.height(dimensionResource(id = R.dimen.spacing_medium)))
+
 
     }
 }
