@@ -9,5 +9,10 @@
     <string name="hint_experience">Experience</string>
     <string name="label_skill">Pilih Skill Anda :</string>
     <string name="btn_proceed">Proceed</string>
+    <string name="cd_header_image">Gambar header</string>
+    <string name="cd_pick_date">Pilih tanggal</string>
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_cancel">Batal</string>
+    <string name="date_format">dd/MM/yyyy</string>
 
 </resources>
