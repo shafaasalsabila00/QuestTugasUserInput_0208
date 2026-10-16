@@ -82,3 +82,37 @@ fun FormBiodata(modifier: Modifier = Modifier) {
     var resultExperience by remember { mutableStateOf("") }
     var resultSkills by remember { mutableStateOf("") }
 
+    val skills = stringArrayResource(id = R.array.skill_list)
+    val experiences = stringArrayResource(id = R.array.experience_list)
+    val dateFormat = stringResource(id = R.string.date_format)
+    val fullNameFormat = stringResource(id = R.string.full_name_format)
+    val skillSeparator = stringResource(id = R.string.skill_separator)
+    val displayDuration = integerResource(id = R.integer.result_display_duration).toLong()
+    val scrollState = rememberScrollState()
+
+    LaunchedEffect(resultTrigger) {
+        if (resultTrigger > 0) {
+            showResult = true
+            delay(100)
+            scrollState.animateScrollTo(scrollState.maxValue)
+            delay(displayDuration)
+            showResult = false
+        }
+    }
+
+    val isFormValid = firstName.isNotBlank() && lastName.isNotBlank() &&
+            email.isNotBlank() && birthDate.isNotBlank() &&
+            experience.isNotBlank() && selectedSkills.isNotEmpty()
+
+    val fieldShape = RoundedCornerShape(dimensionResource(id = R.dimen.field_corner))
+    val cardShape = RoundedCornerShape(
+        topStart = dimensionResource(id = R.dimen.card_corner),
+        topEnd = dimensionResource(id = R.dimen.card_corner)
+    )
+    val fieldColors = OutlinedTextFieldDefaults.colors(
+        focusedBorderColor = colorResource(id = R.color.purple_title),
+        unfocusedBorderColor = colorResource(id = R.color.field_border),
+        focusedTextColor = colorResource(id = R.color.text_primary),
+        unfocusedTextColor = colorResource(id = R.color.text_primary)
+    )
+
