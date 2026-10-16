@@ -116,3 +116,57 @@ fun FormBiodata(modifier: Modifier = Modifier) {
         unfocusedTextColor = colorResource(id = R.color.text_primary)
     )
 
+    Box(modifier = modifier.fillMaxSize()) {
+
+        Image(
+            painter = painterResource(id = R.drawable.header),
+            contentDescription = stringResource(id = R.string.cd_header_image),
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(dimensionResource(id = R.dimen.header_height))
+        )
+
+        Box(
+            modifier = Modifier
+                .align(Alignment.TopCenter)
+                .fillMaxHeight()
+                .padding(
+                    top = dimensionResource(id = R.dimen.card_offset_top),
+                    start = dimensionResource(id = R.dimen.card_margin_horizontal),
+                    end = dimensionResource(id = R.dimen.card_margin_horizontal)
+                )
+                .shadow(
+                    elevation = dimensionResource(id = R.dimen.card_elevation),
+                    shape = cardShape
+                )
+                .background(
+                    color = colorResource(id = R.color.white),
+                    shape = cardShape
+                )
+        ) {
+            Column(
+                modifier = Modifier
+                    .verticalScroll(scrollState)
+                    .padding(dimensionResource(id = R.dimen.card_padding)),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Text(
+                    text = stringResource(id = R.string.title_form),
+                    style = MaterialTheme.typography.headlineMedium,
+                    fontWeight = FontWeight.Bold,
+                    color = colorResource(id = R.color.purple_title)
+                )
+                Text(
+                    text = stringResource(id = R.string.subtitle_form),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = colorResource(id = R.color.text_secondary),
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.padding(top = dimensionResource(id = R.dimen.spacing_small))
+                )
+
+                Spacer(Modifier.height(dimensionResource(id = R.dimen.spacing_large)))
+
+
+    }
+}
