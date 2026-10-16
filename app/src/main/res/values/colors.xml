@@ -8,5 +8,7 @@
     <color name="button_enabled">#6A3AB5</color>
     <color name="button_disabled">#E0E0E0</color>
     <color name="button_text_disabled">#F5F5F5</color>
-
+    <color name="screen_bg">#FFFFFF</color>
+    <color name="result_card_bg">#000000</color>
+    <color name="result_text">#FFFFFF</color>
 </resources>
