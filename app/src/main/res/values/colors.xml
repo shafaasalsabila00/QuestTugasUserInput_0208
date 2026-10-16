@@ -4,5 +4,9 @@
     <color name="white">#FFFFFF</color>
     <color name="text_primary">#1C1B1F</color>
     <color name="text_secondary">#6B6B6B</color>
+    <color name="field_border">#79747E</color>
+    <color name="button_enabled">#6A3AB5</color>
+    <color name="button_disabled">#E0E0E0</color>
+    <color name="button_text_disabled">#F5F5F5</color>
 
 </resources>
