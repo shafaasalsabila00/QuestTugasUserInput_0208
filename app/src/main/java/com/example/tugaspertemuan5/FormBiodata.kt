@@ -74,3 +74,11 @@ fun FormBiodata(modifier: Modifier = Modifier) {
     var showDatePicker by remember { mutableStateOf(false) }
     var expanded by remember { mutableStateOf(false) }
 
+    var showResult by remember { mutableStateOf(false) }
+    var resultTrigger by remember { mutableIntStateOf(0) }
+    var resultNama by remember { mutableStateOf("") }
+    var resultEmail by remember { mutableStateOf("") }
+    var resultTglLahir by remember { mutableStateOf("") }
+    var resultExperience by remember { mutableStateOf("") }
+    var resultSkills by remember { mutableStateOf("") }
+
