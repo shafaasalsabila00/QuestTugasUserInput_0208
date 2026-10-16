@@ -257,6 +257,59 @@ fun FormBiodata(modifier: Modifier = Modifier) {
 
                 Spacer(Modifier.height(dimensionResource(id = R.dimen.spacing_medium)))
 
+                Text(
+                    text = stringResource(id = R.string.label_skill),
+                    style = MaterialTheme.typography.titleSmall,
+                    color = colorResource(id = R.color.text_primary),
+                    modifier = Modifier.fillMaxWidth()
+                )
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    skills.forEach { skill ->
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Checkbox(
+                                checked = skill in selectedSkills,
+                                onCheckedChange = { checked ->
+                                    if (checked) selectedSkills.add(skill) else selectedSkills.remove(skill)
+                                }
+                            )
+                            Text(
+                                text = skill,
+                                style = MaterialTheme.typography.labelMedium,
+                                color = colorResource(id = R.color.text_primary)
+                            )
+                        }
+                    }
+                }
+
+                Spacer(Modifier.height(dimensionResource(id = R.dimen.spacing_medium)))
+
+                Button(
+                    onClick = {
+                        resultNama = fullNameFormat.format(firstName, lastName)
+                        resultEmail = email
+                        resultTglLahir = birthDate
+                        resultExperience = experience
+                        resultSkills = selectedSkills.joinToString(separator = skillSeparator)
+                        resultTrigger++
+                    },
+                    enabled = isFormValid,
+                    shape = fieldShape,
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = colorResource(id = R.color.button_enabled),
+                        disabledContainerColor = colorResource(id = R.color.button_disabled),
+                        disabledContentColor = colorResource(id = R.color.button_text_disabled)
+                    ),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(dimensionResource(id = R.dimen.button_height))
+                ) {
+                    Text(stringResource(id = R.string.btn_proceed))
+                }
+
 
     }
 }
