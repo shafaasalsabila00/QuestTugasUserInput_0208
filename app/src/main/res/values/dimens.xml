@@ -10,5 +10,6 @@
     <dimen name="spacing_small">8dp</dimen>
     <dimen name="spacing_medium">16dp</dimen>
     <dimen name="spacing_large">24dp</dimen>
-
+    <dimen name="button_height">52dp</dimen>
+    <dimen name="result_elevation">10dp</dimen>
 </resources>
